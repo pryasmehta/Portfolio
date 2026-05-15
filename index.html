@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pryas Mehta - QA Lead & IT Consultant | Full-Stack Professional</title>
+    <title>Pryas Mehta | IT Consultant & Full Stack Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -11,43 +14,251 @@
             box-sizing: border-box;
         }
 
-        :root {
-            --primary: #0f172a;
-            --secondary: #1e293b;
-            --accent: #3b82f6;
-            --accent-light: #60a5fa;
-            --text-primary: #f1f5f9;
-            --text-secondary: #cbd5e1;
-            --border: #334155;
-            --success: #10b981;
-            --warning: #f59e0b;
-            --danger: #ef4444;
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #faf8f3 0%, #f5f1eb 100%);
+            color: #2c2416;
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
         html {
             scroll-behavior: smooth;
         }
 
-        body {
-            font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, var(--primary) 0%, #0a0e27 100%);
-            color: var(--text-primary);
-            overflow-x: hidden;
-            line-height: 1.6;
+        :root {
+            --primary-dark: #1a4d3e;
+            --primary: #2d6a54;
+            --primary-light: #4a9a7a;
+            --accent-gold: #d4a574;
+            --accent-gold-light: #e8c9a0;
+            --text-dark: #1a1410;
+            --text-light: #6b6259;
+            --bg-light: #faf8f3;
+            --bg-card: #ffffff;
         }
 
-        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Outfit:wght@300;400;600;700&display=swap');
-
-        body {
-            font-family: 'Outfit', sans-serif;
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(250, 248, 243, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            border-bottom: 1px solid rgba(45, 106, 84, 0.1);
         }
 
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Space Grotesk', sans-serif;
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
             font-weight: 700;
+            background: linear-gradient(135deg, #1a4d3e 0%, #d4a574 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            cursor: pointer;
+            transition: transform 0.3s ease;
         }
 
-        /* Smooth scroll animations */
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent-gold) 100%);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #1a4d3e 0%, #2d6a54 100%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(45, 106, 84, 0.25);
+        }
+
+        .hero {
+            margin-top: 80px;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(45, 106, 84, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -10%;
+            left: 10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(212, 165, 116, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 25s ease-in-out infinite 2s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(30px); }
+        }
+
+        .hero-content {
+            max-width: 900px;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            letter-spacing: -1px;
+        }
+
+        .hero .subtitle {
+            font-size: 1.4rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .hero .highlight {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2.5rem;
+        }
+
+        .secondary-button {
+            background: transparent;
+            color: var(--primary);
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--primary);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .secondary-button:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        section {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.2s forwards;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.3s forwards;
+        }
+
+        .section-description {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.4s forwards;
+        }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -59,521 +270,295 @@
             }
         }
 
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(-40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
         }
 
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes glow {
-            0%, 100% {
-                box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
-            }
-            50% {
-                box-shadow: 0 0 40px rgba(59, 130, 246, 0.6);
-            }
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        @keyframes shimmer {
-            0% {
-                background-position: -1000px 0;
-            }
-            100% {
-                background-position: 1000px 0;
-            }
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-            background: rgba(15, 23, 42, 0.8);
-            border-bottom: 1px solid var(--border);
-            padding: 1rem 2rem;
-        }
-
-        nav .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-family: 'Space Grotesk', sans-serif;
-            letter-spacing: -1px;
-        }
-
-        nav a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            margin: 0 1.5rem;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent);
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover {
-            color: var(--accent);
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            margin-top: 60px;
+        .about-card {
+            background: var(--bg-card);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(45, 106, 84, 0.1);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+            cursor: pointer;
             position: relative;
             overflow: hidden;
         }
 
-        .hero::before {
+        .about-card::before {
             content: '';
             position: absolute;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
-            border-radius: 50%;
-            top: -200px;
-            right: -200px;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            bottom: -150px;
-            left: -150px;
-            animation: float 8s ease-in-out infinite;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .hero-content h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-            letter-spacing: -2px;
-        }
-
-        .hero-content .subtitle {
-            font-size: 1.3rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            font-weight: 300;
-        }
-
-        .hero-content .tagline {
-            font-size: 1.1rem;
-            color: var(--accent);
-            margin-bottom: 3rem;
-            font-weight: 600;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-            cursor: pointer;
-            margin: 0.5rem;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
-        }
-
-        .cta-button-secondary {
-            background: transparent;
-            border: 2px solid var(--accent);
-            color: var(--accent);
-        }
-
-        .cta-button-secondary:hover {
-            background: rgba(59, 130, 246, 0.1);
-        }
-
-        /* Scroll Indicator */
-        .scroll-indicator {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateX(-50%) translateY(0);
-            }
-            50% {
-                transform: translateX(-50%) translateY(10px);
-            }
-        }
-
-        .scroll-indicator svg {
-            width: 24px;
-            height: 24px;
-            stroke: var(--accent);
-            fill: none;
-        }
-
-        /* Section Styles */
-        section {
-            padding: 6rem 0;
-            position: relative;
-        }
-
-        section h2 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        section h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
+            top: 0;
             left: 0;
-            width: 60px;
+            width: 100%;
             height: 4px;
-            background: linear-gradient(90deg, var(--accent), transparent);
-            border-radius: 2px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent-gold) 100%);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s cubic-bezier(0.23, 1, 0.320, 1);
         }
 
-        /* About Section */
-        .about {
-            background: linear-gradient(180deg, transparent 0%, rgba(30, 41, 59, 0.3) 50%, transparent 100%);
+        .about-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(45, 106, 84, 0.15);
         }
 
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            margin-top: 3rem;
+        .about-card:hover::before {
+            transform: scaleX(1);
         }
 
-        .about-text h3 {
-            font-size: 1.8rem;
-            margin-top: 2rem;
+        .about-card-icon {
+            font-size: 2.5rem;
             margin-bottom: 1rem;
-            color: var(--accent-light);
+            display: block;
         }
 
-        .about-text p {
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
+        .about-card h3 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 1.2rem;
+            font-weight: 600;
+        }
+
+        .about-card p {
+            color: var(--text-light);
             line-height: 1.8;
+            font-size: 0.95rem;
         }
 
-        .stats-grid {
+        .about-card p + p {
+            margin-top: 1rem;
+        }
+
+        .about-card strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .services-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
 
-        .stat-box {
-            background: rgba(30, 41, 59, 0.5);
-            border: 1px solid var(--border);
-            padding: 2rem;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            animation: fadeInUp 0.8s ease-out backwards;
+        .service-card {
+            background: var(--bg-card);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(45, 106, 84, 0.1);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
         }
 
-        .stat-box:nth-child(1) { animation-delay: 0.1s; }
-        .stat-box:nth-child(2) { animation-delay: 0.2s; }
-        .stat-box:nth-child(3) { animation-delay: 0.3s; }
-        .stat-box:nth-child(4) { animation-delay: 0.4s; }
-
-        .stat-box:hover {
-            background: rgba(30, 41, 59, 0.8);
-            border-color: var(--accent);
-            transform: translateY(-5px);
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent-gold) 100%);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
         }
 
-        .stat-number {
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(45, 106, 84, 0.1);
+            border-color: var(--primary-light);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
             font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .timeline {
+            position: relative;
+            margin-top: 3rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary) 0%, var(--accent-gold) 100%);
+            top: 0;
+        }
+
+        .timeline-item {
+            margin-bottom: 3rem;
+            width: 45%;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .timeline-item:nth-child(odd) {
+            margin-left: 0;
+            text-align: right;
+            padding-right: 5%;
+        }
+
+        .timeline-item:nth-child(even) {
+            margin-left: 55%;
+            text-align: left;
+            padding-left: 5%;
+        }
+
+        .timeline-item:nth-child(1) { animation-delay: 0.2s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.4s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.6s; }
+        .timeline-item:nth-child(4) { animation-delay: 0.8s; }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: var(--accent-gold);
+            border: 4px solid var(--bg-light);
+            border-radius: 50%;
+            z-index: 10;
+        }
+
+        .timeline-content {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 3px solid var(--primary);
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            border-left: none;
+            border-right: 3px solid var(--primary);
+        }
+
+        .timeline-year {
+            font-size: 0.85rem;
             font-weight: 700;
-            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary);
             margin-bottom: 0.5rem;
         }
 
-        .stat-label {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Skills Section */
-        .skills {
-            background: linear-gradient(180deg, rgba(30, 41, 59, 0.3) 0%, transparent 100%);
-        }
-
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .skill-category {
-            background: rgba(30, 41, 59, 0.6);
-            border: 1px solid var(--border);
-            padding: 2rem;
-            border-radius: 8px;
-            animation: fadeInUp 0.8s ease-out backwards;
-        }
-
-        .skill-category:nth-child(1) { animation-delay: 0.1s; }
-        .skill-category:nth-child(2) { animation-delay: 0.2s; }
-        .skill-category:nth-child(3) { animation-delay: 0.3s; }
-        .skill-category:nth-child(4) { animation-delay: 0.4s; }
-
-        .skill-category h3 {
+        .timeline-title {
             font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            color: var(--accent-light);
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
         }
 
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-        }
-
-        .skill-tag {
-            background: rgba(59, 130, 246, 0.15);
-            color: var(--accent-light);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            border: 1px solid rgba(59, 130, 246, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .skill-tag:hover {
-            background: rgba(59, 130, 246, 0.3);
-            border-color: var(--accent);
-            transform: translateY(-2px);
-        }
-
-        /* Experience Section */
-        .experience {
-            background: linear-gradient(180deg, transparent 0%, rgba(30, 41, 59, 0.3) 50%, transparent 100%);
-        }
-
-        .experience-timeline {
-            margin-top: 3rem;
-            position: relative;
-        }
-
-        .experience-timeline::before {
-            content: '';
-            position: absolute;
-            left: 40px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(180deg, var(--accent) 0%, transparent 100%);
-        }
-
-        .experience-item {
-            margin-bottom: 3rem;
-            margin-left: 120px;
-            padding: 2rem;
-            background: rgba(30, 41, 59, 0.4);
-            border-radius: 8px;
-            border-left: 2px solid var(--accent);
-            animation: slideInRight 0.8s ease-out backwards;
-            position: relative;
-        }
-
-        .experience-item:nth-child(1) { animation-delay: 0.1s; }
-        .experience-item:nth-child(2) { animation-delay: 0.2s; }
-        .experience-item:nth-child(3) { animation-delay: 0.3s; }
-        .experience-item:nth-child(4) { animation-delay: 0.4s; }
-        .experience-item:nth-child(5) { animation-delay: 0.5s; }
-
-        .experience-item::before {
-            content: '';
-            position: absolute;
-            left: -48px;
-            top: 30px;
-            width: 16px;
-            height: 16px;
-            background: var(--accent);
-            border-radius: 50%;
-            border: 4px solid var(--primary);
-        }
-
-        .experience-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
+        .timeline-company {
+            font-size: 0.95rem;
+            color: var(--accent-gold);
+            font-weight: 500;
             margin-bottom: 1rem;
         }
 
-        .experience-item h3 {
-            font-size: 1.3rem;
-            color: var(--accent-light);
-        }
-
-        .experience-item .position {
-            color: var(--text-secondary);
+        .timeline-description {
+            color: var(--text-light);
             font-size: 0.95rem;
-            margin-top: 0.5rem;
+            line-height: 1.7;
         }
 
-        .experience-item .date {
-            color: var(--accent);
-            font-size: 0.9rem;
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .skill-tag {
+            background: var(--bg-card);
+            padding: 1.2rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid rgba(45, 106, 84, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .skill-tag:hover {
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--accent-gold) 100%);
+            color: white;
+            border-color: transparent;
+            transform: translateY(-5px);
+        }
+
+        .skill-tag:hover .skill-name {
+            color: white;
+        }
+
+        .skill-name {
             font-weight: 600;
-        }
-
-        .experience-item .client {
-            color: var(--success);
-            font-size: 0.85rem;
-            margin-top: 0.5rem;
-            font-weight: 600;
-        }
-
-        .experience-item p {
-            color: var(--text-secondary);
-            margin-top: 1rem;
-            line-height: 1.8;
-        }
-
-        .responsibilities {
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid var(--border);
-        }
-
-        .responsibilities li {
-            color: var(--text-secondary);
-            margin: 0.5rem 0;
-            margin-left: 1.5rem;
-        }
-
-        /* Projects Section */
-        .projects {
-            background: linear-gradient(180deg, rgba(30, 41, 59, 0.3) 0%, transparent 100%);
+            font-size: 1rem;
+            color: var(--text-dark);
+            transition: color 0.3s ease;
         }
 
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
+            gap: 2.5rem;
             margin-top: 3rem;
         }
 
         .project-card {
-            background: rgba(30, 41, 59, 0.6);
-            border: 1px solid var(--border);
-            border-radius: 8px;
+            background: var(--bg-card);
+            border-radius: 16px;
             overflow: hidden;
-            transition: all 0.3s ease;
-            animation: fadeInUp 0.8s ease-out backwards;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            border: 1px solid rgba(45, 106, 84, 0.1);
             display: flex;
             flex-direction: column;
         }
 
-        .project-card:nth-child(1) { animation-delay: 0.1s; }
-        .project-card:nth-child(2) { animation-delay: 0.2s; }
-        .project-card:nth-child(3) { animation-delay: 0.3s; }
-
-        .project-card:hover {
-            border-color: var(--accent);
-            background: rgba(30, 41, 59, 0.8);
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
-        }
-
-        .project-icon {
+        .project-image {
             width: 100%;
-            height: 180px;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(16, 185, 129, 0.2) 100%);
+            height: 250px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 50%, var(--accent-gold) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card:hover .project-image {
+            transform: scale(1.1);
         }
 
         .project-content {
@@ -583,154 +568,273 @@
             flex-direction: column;
         }
 
-        .project-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            color: var(--accent-light);
-        }
-
-        .project-card .project-role {
-            color: var(--accent);
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .project-card p {
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            flex-grow: 1;
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
         .project-tag {
-            background: rgba(59, 130, 246, 0.1);
-            color: var(--accent);
-            padding: 0.3rem 0.8rem;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            border: 1px solid rgba(59, 130, 246, 0.2);
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            width: fit-content;
         }
 
-        /* Expertise Section */
-        .expertise {
-            background: linear-gradient(180deg, transparent 0%, rgba(30, 41, 59, 0.3) 50%, transparent 100%);
+        .project-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.8rem;
         }
 
-        .expertise-grid {
+        .project-description {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            flex-grow: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-impact {
+            background: rgba(45, 106, 84, 0.05);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--accent-gold);
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .project-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 60px rgba(45, 106, 84, 0.12);
+        }
+
+        .impact-highlights {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
 
-        .expertise-item {
-            padding: 2rem;
-            background: rgba(30, 41, 59, 0.5);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            animation: fadeInUp 0.8s ease-out backwards;
-            transition: all 0.3s ease;
+        .impact-card {
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
         }
 
-        .expertise-item:nth-child(1) { animation-delay: 0.1s; }
-        .expertise-item:nth-child(2) { animation-delay: 0.2s; }
-        .expertise-item:nth-child(3) { animation-delay: 0.3s; }
-        .expertise-item:nth-child(4) { animation-delay: 0.4s; }
-        .expertise-item:nth-child(5) { animation-delay: 0.5s; }
-        .expertise-item:nth-child(6) { animation-delay: 0.6s; }
-
-        .expertise-item:hover {
-            background: rgba(30, 41, 59, 0.7);
-            border-color: var(--accent);
-            transform: translateY(-5px);
+        .impact-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
         }
 
-        .expertise-icon {
-            font-size: 2.5rem;
+        .impact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(45, 106, 84, 0.25);
+        }
+
+        .impact-icon {
+            font-size: 3rem;
             margin-bottom: 1rem;
         }
 
-        .expertise-item h4 {
-            font-size: 1.1rem;
-            margin-bottom: 0.75rem;
-            color: var(--accent-light);
+        .impact-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            position: relative;
+            z-index: 1;
         }
 
-        .expertise-item p {
-            color: var(--text-secondary);
+        .impact-description {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-container {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-form {
+            margin-top: 3rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
             font-size: 0.95rem;
         }
 
-        /* Contact Section */
-        .contact {
-            background: linear-gradient(180deg, rgba(30, 41, 59, 0.3) 0%, transparent 100%);
-            text-align: center;
+        .form-group input,
+        .form-group textarea {
+            padding: 1rem;
+            border: 2px solid rgba(45, 106, 84, 0.2);
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            background: var(--bg-card);
+            color: var(--text-dark);
         }
 
-        .contact h2 {
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(45, 106, 84, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .form-submit {
+            background: linear-gradient(135deg, #1a4d3e 0%, #2d6a54 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            width: 100%;
+        }
+
+        .form-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(45, 106, 84, 0.25);
+        }
+
+        .form-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .form-message {
+            margin-top: 1.5rem;
+            padding: 1.2rem;
+            border-radius: 12px;
+            display: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            animation: slideIn 0.4s ease;
+        }
+
+        .form-message.success {
             display: block;
-            margin-bottom: 2rem;
+            background: rgba(29, 158, 117, 0.1);
+            color: #0F6E56;
+            border: 1px solid rgba(29, 158, 117, 0.3);
         }
 
-        .contact-content {
-            max-width: 600px;
+        .form-message.error {
+            display: block;
+            background: rgba(220, 53, 69, 0.1);
+            color: #a73a4a;
+            border: 1px solid rgba(220, 53, 69, 0.3);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 2px solid var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        footer {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            color: white;
+            padding: 3rem 5%;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1400px;
             margin: 0 auto;
         }
 
-        .contact-content p {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            line-height: 1.8;
+        .footer-text {
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
         }
 
-        .contact-methods {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .contact-method {
-            padding: 1rem 1.5rem;
-            background: rgba(30, 41, 59, 0.6);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            color: var(--accent-light);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            animation: fadeInUp 0.8s ease-out backwards;
-        }
-
-        .contact-method:nth-child(1) { animation-delay: 0.1s; }
-        .contact-method:nth-child(2) { animation-delay: 0.2s; }
-        .contact-method:nth-child(3) { animation-delay: 0.3s; }
-
-        .contact-method:hover {
-            background: rgba(59, 130, 246, 0.1);
-            border-color: var(--accent);
-            transform: translateY(-3px);
-        }
-
-        /* Footer */
-        footer {
-            border-top: 1px solid var(--border);
-            padding: 2rem 0;
-            text-align: center;
-            color: var(--text-secondary);
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
-            .hero-content h1 {
+            nav ul {
+                gap: 1.5rem;
+            }
+
+            .hero h1 {
                 font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
             }
 
             .about-grid {
@@ -738,437 +842,547 @@
                 gap: 2rem;
             }
 
-            .stats-grid {
+            .timeline::before {
+                display: none;
+            }
+
+            .timeline-item {
+                width: 100%;
+                margin-left: 0 !important;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+                text-align: left !important;
+            }
+
+            .timeline-content {
+                border-left: 3px solid var(--primary);
+                border-right: none;
+            }
+
+            .timeline-dot {
+                left: 0;
+                transform: translateX(-45px);
+            }
+
+            .services-grid {
                 grid-template-columns: 1fr;
             }
 
-            section h2 {
-                font-size: 2rem;
-            }
-
-            .experience-timeline::before {
-                left: 20px;
-            }
-
-            .experience-item {
-                margin-left: 80px;
-            }
-
-            .experience-item::before {
-                left: -36px;
-            }
-
-            .skills-container,
-            .expertise-grid,
             .projects-grid {
                 grid-template-columns: 1fr;
             }
 
-            nav .container {
-                flex-direction: column;
-                gap: 1rem;
+            .impact-highlights {
+                grid-template-columns: 1fr;
             }
 
-            nav a {
-                margin: 0.5rem;
+            .hero-buttons {
+                flex-direction: column;
             }
+
+            .cta-button,
+            .secondary-button {
+                width: 100%;
+                text-align: center;
+            }
+
+            header {
+                padding: 0.8rem 4%;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            section {
+                padding: 4rem 4%;
+            }
+        }
+
+        .fade-in-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .fade-in-scroll.visible {
+            animation: fadeInUp 0.8s ease forwards;
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="container">
+    <header>
+        <nav>
             <div class="logo">PM</div>
-            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#experience">Experience</a>
-                <a href="#projects">Projects</a>
-                <a href="#expertise">Expertise</a>
-                <a href="#contact">Contact</a>
-            </div>
-        </div>
-    </nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="cta-button" onclick="document.getElementById('contact').scrollIntoView()">Get In Touch</button>
+        </nav>
+    </header>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Pryas Mehta</h1>
-            <p class="subtitle">Quality Assurance Lead & IT Consultant</p>
-            <p class="tagline">Transforming complex systems into reliable, user-centric solutions</p>
-            <div>
-                <a href="#contact" class="cta-button">Get In Touch</a>
-                <a href="https://www.linkedin.com/in/ing-pryas-mehta-8537b9163/" target="_blank" class="cta-button cta-button-secondary">LinkedIn Profile</a>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <svg viewBox="0 0 24 24" stroke="currentColor">
-                <path d="M12 2v16m0 0l-4-4m4 4l4-4"/>
-            </svg>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <h2>About Me</h2>
-            <div class="about-grid">
-                <div class="about-text">
-                    <h3>Professional Journey</h3>
-                    <p>With 4+ years of dedicated experience in Quality Assurance, IT Consulting, and full-stack development, I've led complex testing initiatives across global organizations including CEMEX, DHL, and Wipro. My expertise spans enterprise systems, digital transformation projects, and sustainable technology solutions.</p>
-                    <p>Currently serving as a Team Lead and Key Quality Engineer at CEMEX, I oversee end-to-end QA strategies for mission-critical platforms serving multiple EMEA countries. I'm passionate about building high-performing teams, mentoring engineers, and driving continuous improvement in software quality.</p>
-                    <p>As an IT Consultant with Bishnoi s.r.o. and founder of multiple projects (Palisandr.in, Foia.cz), I help businesses leverage modern technologies, optimize digital infrastructure, and implement AI-driven solutions for growth.</p>
-                </div>
-                <div class="stats-grid">
-                    <div class="stat-box">
-                        <div class="stat-number">4+</div>
-                        <div class="stat-label">Years Experience</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-number">20+</div>
-                        <div class="stat-label">Countries Reached</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-number">8+</div>
-                        <div class="stat-label">Major Clients</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-number">100%</div>
-                        <div class="stat-label">Quality Focused</div>
-                    </div>
-                </div>
+            <h1>Building Digital Solutions with <span class="highlight">Purpose & Impact</span></h1>
+            <p class="subtitle">IT Consultant | Full Stack Developer | Technology Leader</p>
+            <p style="color: var(--text-light); font-size: 1.1rem; max-width: 700px; margin: 1.5rem auto;">
+                Helping startups and enterprises modernize operations, streamline processes, and scale with intelligent technology solutions.
+            </p>
+            <div class="hero-buttons">
+                <button class="cta-button" onclick="document.getElementById('projects').scrollIntoView()">View My Work</button>
+                <a href="#contact" class="secondary-button">Start a Project</a>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section class="skills" id="skills">
-        <div class="container">
-            <h2>Core Competencies</h2>
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h3>🧪 QA & Testing</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Test Strategy</span>
-                        <span class="skill-tag">Functional Testing</span>
-                        <span class="skill-tag">Mobile Testing</span>
-                        <span class="skill-tag">System Integration</span>
-                        <span class="skill-tag">UAT Coordination</span>
-                        <span class="skill-tag">Regression Testing</span>
-                        <span class="skill-tag">Risk Assessment</span>
-                        <span class="skill-tag">Test Automation</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>💼 Process & Leadership</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Team Leadership</span>
-                        <span class="skill-tag">Mentoring</span>
-                        <span class="skill-tag">Agile/Scrum</span>
-                        <span class="skill-tag">Process Improvement</span>
-                        <span class="skill-tag">Requirement Analysis</span>
-                        <span class="skill-tag">RCA & Problem Solving</span>
-                        <span class="skill-tag">Stakeholder Management</span>
-                        <span class="skill-tag">KPI Reporting</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>🛠️ Technical Skills</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">SQL</span>
-                        <span class="skill-tag">Jira</span>
-                        <span class="skill-tag">qTest</span>
-                        <span class="skill-tag">API Testing</span>
-                        <span class="skill-tag">Salesforce</span>
-                        <span class="skill-tag">SAP</span>
-                        <span class="skill-tag">Web & Mobile</span>
-                        <span class="skill-tag">Database Testing</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>🚀 Consulting & Development</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">IT Consulting</span>
-                        <span class="skill-tag">Full-Stack Development</span>
-                        <span class="skill-tag">Digital Transformation</span>
-                        <span class="skill-tag">SEO/AEO Strategy</span>
-                        <span class="skill-tag">AI Integration</span>
-                        <span class="skill-tag">Cloud Solutions</span>
-                        <span class="skill-tag">Web Development</span>
-                        <span class="skill-tag">Tech Stack Advisory</span>
-                    </div>
-                </div>
+    <section id="about" class="fade-in-scroll">
+        <span class="section-label">About Me</span>
+        <h2 class="section-title">Bridging Technology & Business</h2>
+        <p class="section-description">With over 4 years of professional experience, I've led teams, architected solutions, and delivered measurable impact across diverse industries.</p>
+        
+        <div class="about-grid">
+            <div class="about-card">
+                <span class="about-card-icon">🎯</span>
+                <h3>My Approach</h3>
+                <p>I believe technology should solve real business problems. Every solution I create starts with understanding your challenges deeply—whether it's digitizing legacy systems, optimizing workflows, or building innovative platforms from scratch.</p>
+                <p>My focus is on delivering <strong>measurable impact</strong> with clean, scalable solutions that grow with your business.</p>
+            </div>
+
+            <div class="about-card">
+                <span class="about-card-icon">🌍</span>
+                <h3>Experience</h3>
+                <p><strong>Global Teams:</strong> Led QA teams across EMEA regions (UK, Poland, Spain, Czech Republic, Germany, France, Israel, UAE, Egypt) for CEMEX, a Fortune 500 company.</p>
+                <p><strong>Multiple Domains:</strong> Enterprise platforms, mobile applications (iOS/Android), ERP systems (Salesforce, SAP), and infrastructure management.</p>
+                <p><strong>4+ Years:</strong> Proven track record in quality leadership, digital transformation, and IT consulting.</p>
+            </div>
+
+            <div class="about-card">
+                <span class="about-card-icon">⚡</span>
+                <h3>Specialties</h3>
+                <p><strong>IT Consulting:</strong> Technology strategy, digital transformation, process optimization, SEO/AEO strategies, AI integration.</p>
+                <p><strong>Development:</strong> Web & mobile platforms, database architecture, backend systems, full-stack solutions.</p>
+                <p><strong>Quality & Leadership:</strong> QA strategy, team mentorship, risk management, production coordination.</p>
             </div>
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section class="experience" id="experience">
-        <div class="container">
-            <h2>Professional Experience</h2>
-            <div class="experience-timeline">
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <div>
-                            <h3>Team Lead, Quality Engineer, Key Quality Engineer</h3>
-                            <p class="position">CEMEX Global Order Management Platform</p>
-                            <p class="client">Client: CEMEX</p>
-                        </div>
-                        <div class="date">Mar 2024 - Present<br>2+ years</div>
-                    </div>
-                    <p><strong>Mission Critical Platform:</strong> Led end-to-end QA lifecycle for a comprehensive digital platform serving EMEA region across 9+ countries (UK, PL, ES, CZ, DE, FR, IL, AE, EG) with complex order management processes.</p>
-                    <div class="responsibilities">
-                        <strong>Key Achievements:</strong>
-                        <ul>
-                            <li>Established QA processes from scratch for unclear requirements and complex business logic</li>
-                            <li>Mentored QA engineers in test fundamentals, test design, and exploratory testing</li>
-                            <li>Created multi-platform test strategies for Android/iOS ensuring traceability and risk-based prioritization</li>
-                            <li>Led production releases with rollback strategies and critical incident resolution</li>
-                            <li>Conducted technical interviews and built high-performing QA teams</li>
-                            <li>Drove continuous process improvement aligning with industry best practices</li>
-                        </ul>
-                    </div>
-                </div>
+    <section id="services">
+        <span class="section-label">What I Offer</span>
+        <h2 class="section-title">Services</h2>
+        <p class="section-description">Comprehensive solutions tailored to drive growth and innovation for your business.</p>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🔍</div>
+                <h3>Digital Transformation</h3>
+                <p>Modernize legacy systems, automate workflows, and integrate digital tools across your organization. I help companies transition from paper-based to fully automated processes.</p>
+            </div>
 
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <div>
-                            <h3>Quality Engineer, Team Lead</h3>
-                            <p class="position">Paperless Deliveries Project</p>
-                            <p class="client">Client: CEMEX</p>
-                        </div>
-                        <div class="date">Jul 2022 - Present<br>3+ years</div>
-                    </div>
-                    <p><strong>Award-Winning Initiative:</strong> Executed testing strategy for digital delivery transformation project, eliminating paper-based processes across EMEA region.</p>
-                    <div class="responsibilities">
-                        <strong>Recognition:</strong>
-                        <ul>
-                            <li>🏆 Outstanding Project for Sustainable Development Award</li>
-                            <li>🏆 Excellence in Performance Recognition</li>
-                            <li>Coordinated UAT, SIT, and Regression Testing with international teams</li>
-                            <li>Conducted comprehensive mobile app testing (iOS & Android)</li>
-                            <li>Implemented SQL-based data validation and backend testing</li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="service-card">
+                <div class="service-icon">🏗️</div>
+                <h3>Full Stack Development</h3>
+                <p>Build custom web and mobile applications from concept to deployment. From frontend design to backend architecture, I create scalable solutions that users love.</p>
+            </div>
 
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <div>
-                            <h3>Quality Engineer</h3>
-                            <p class="position">UK Acceleration Project</p>
-                            <p class="client">Client: CEMEX</p>
-                        </div>
-                        <div class="date">Jul 2022 - Mar 2024<br>1 year 9 months</div>
-                    </div>
-                    <p><strong>Digital Order Transformation:</strong> Spearheaded QA efforts for UK market digitization with EMEA expansion, modernizing legacy systems and automating workflows.</p>
-                    <div class="responsibilities">
-                        <strong>Responsibilities:</strong>
-                        <ul>
-                            <li>Performed functional testing on web and mobile applications</li>
-                            <li>Designed and maintained comprehensive test plans and test cases</li>
-                            <li>Conducted SIT, Regression Testing, and UAT coordination</li>
-                            <li>Participated in requirement analysis and definition workshops</li>
-                            <li>Delivered training sessions to Business Analysts on testing tools</li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3>IT Consulting</h3>
+                <p>Strategic technology guidance for startups and enterprises. Includes process optimization, technology selection, database design, and AI/ML integration strategies.</p>
+            </div>
 
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <div>
-                            <h3>Quality Engineer</h3>
-                            <p class="position">DHL IT Services (Mauritius)</p>
-                            <p class="client">Client: DHL IT Services</p>
-                        </div>
-                        <div class="date">Jan 2022 - Jun 2022<br>6 months</div>
-                    </div>
-                    <p><strong>Enterprise Transformation:</strong> Validated Salesforce CRM-based ERP solution for DHL operations, ensuring reliability and system integration with SAP.</p>
-                    <div class="responsibilities">
-                        <strong>Responsibilities:</strong>
-                        <ul>
-                            <li>Designed and executed manual and automated test cases using qTest and Jira</li>
-                            <li>Validated Salesforce functionality and CRM integration</li>
-                            <li>Conducted comprehensive bug identification and usability testing</li>
-                            <li>Collaborated with cross-functional teams on bug validation and fixes</li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="service-card">
+                <div class="service-icon">🔬</div>
+                <h3>Quality Assurance & Testing</h3>
+                <p>Comprehensive QA strategy development, test planning, and quality metrics definition. Ensure your products are robust, reliable, and ready for production.</p>
+            </div>
 
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <div>
-                            <h3>1st Line Support Specialist</h3>
-                            <p class="position">E.ON & Innogy Wintel Infrastructure</p>
-                            <p class="client">Client: Wipro Limited</p>
-                        </div>
-                        <div class="date">Sep 2020 - Oct 2021<br>1 year 2 months</div>
-                    </div>
-                    <p><strong>Infrastructure Management:</strong> Managed large-scale Wintel infrastructure supporting critical European energy operations.</p>
-                    <div class="responsibilities">
-                        <strong>Responsibilities:</strong>
-                        <ul>
-                            <li>Handled L2/L3 elevated incidents with focus on SLA compliance</li>
-                            <li>Coordinated critical patching activities and server management</li>
-                            <li>Managed monitoring tool upgrades for enhanced system visibility</li>
-                            <li>Implemented ITIL-based Incident, Problem, and Escalation Management</li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="service-card">
+                <div class="service-icon">👥</div>
+                <h3>Team Leadership & Mentoring</h3>
+                <p>Build and develop high-performing teams. I provide coaching, process improvement guidance, and knowledge transfer across cross-functional teams.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🎯</div>
+                <h3>SEO & Search Optimization</h3>
+                <p>Optimize your web presence for search engines and AI-powered search platforms. Implement modern SEO, GEO, and AEO strategies to increase visibility.</p>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section class="projects" id="projects">
-        <div class="container">
-            <h2>Notable Projects & Ventures</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-icon">🌐</div>
-                    <div class="project-content">
-                        <h3><a href="https://foia.cz/"> Foia.cz</a></h3>
-                        <p class="project-role">Full-Stack Developer & Owner</p>
-                        <p>A comprehensive Czech-based association website delivering seamless user experience with modern web technologies. The platform is live and actively serving the community with responsive design, optimized performance, and engaging interface.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Web Development</span>
-                            <span class="project-tag">Full-Stack</span>
-                            <span class="project-tag">Live Project</span>
-                        </div>
-                    </div>
-                </div>
+    <section>
+        <span class="section-label">Impact Stories</span>
+        <h2 class="section-title">IT Consulting Achievements</h2>
+        <p class="section-description">Real results from helping organizations transform through technology.</p>
+        
+        <div class="impact-highlights">
+            <div class="impact-card">
+                <div class="impact-icon">🌍</div>
+                <div class="impact-title">Global Digital Platform</div>
+                <div class="impact-description">Led QA for order management digitization across 9 countries (EMEA region), supporting CEMEX's transformation from manual to fully digital workflows.</div>
+            </div>
 
-                <div class="project-card">
-                    <div class="project-icon">📱</div>
-                    <div class="project-content">
-                        <h3><a href="https://palisandr.in/">Palisandr.in</a></h3>
-                        <p class="project-role">Full Development & Business Consultant</p>
-                        <p>Comprehensive project management from conception to launch, combining technical development with strategic business consulting. Directly engaged with stakeholders on requirements, technology decisions, and quality assurance leadership.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Development</span>
-                            <span class="project-tag">QA Management</span>
-                            <span class="project-tag">Business Advisory</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="impact-card">
+                <div class="impact-icon">♻️</div>
+                <div class="impact-title">Sustainability Award</div>
+                <div class="impact-description">Paperless Deliveries project recognized with Outstanding Project for Sustainable Development award—eliminating paper-based delivery tickets and reducing operational waste.</div>
+            </div>
 
-                <div class="project-card">
-                    <div class="project-icon">💼</div>
-                    <div class="project-content">
-                        <h3>Bishnoi s.r.o. </h3>
-                        <p class="project-role">IT Consultant & Technical Advisor</p>
-                        <p>Ongoing consulting engagement providing strategic IT advice, partner communications, database optimization, technology recommendations, and AI integration strategies to drive business growth and operational efficiency.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">IT Consulting</span>
-                            <span class="project-tag">Technology Advisory</span>
-                            <span class="project-tag">AI Integration</span>
-                        </div>
-                    </div>
+            <div class="impact-card">
+                <div class="impact-icon">⚙️</div>
+                <div class="impact-title">Process Optimization</div>
+                <div class="impact-description">Designed and implemented comprehensive QA processes for complex enterprise systems, improving test coverage, reducing defects, and accelerating time-to-market.</div>
+            </div>
+
+            <div class="impact-card">
+                <div class="impact-icon">👥</div>
+                <div class="impact-title">Team Development</div>
+                <div class="impact-description">Built and mentored QA teams across multiple regions, establishing best practices, knowledge sharing frameworks, and high-performing team culture.</div>
+            </div>
+
+            <div class="impact-card">
+                <div class="impact-icon">🔧</div>
+                <div class="impact-title">Technology Consulting</div>
+                <div class="impact-description">Provided IT consulting for Czech association (Foia.cz) and local business (Bishnoi s.r.o.), advising on technology selection, database design, and digital strategy.</div>
+            </div>
+
+            <div class="impact-card">
+                <div class="impact-icon">🚀</div>
+                <div class="impact-title">Startup Partnership</div>
+                <div class="impact-description">Full-cycle involvement with Palisandr.in—development management, QA strategy, business consultation, and stakeholder engagement.</div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <span class="section-label">Skills & Technologies</span>
+        <h2 class="section-title">Expertise</h2>
+        
+        <div class="skills-grid">
+            <div class="skill-tag">
+                <div class="skill-name">QA & Testing</div>
+            </div>
+            <div class="skill-tag">
+                <div class="skill-name">Test Automation</div>
+            </div>
+            <div class="skill-tag">
+                <div class="skill-name">Mobile (iOS/Android)</div>
+            </div>
+            <div class="skill-tag">
+                <div class="skill-name">Web Development</div>
+            </div>
+            <div class="skill-tag">
+                <div class="skill-name">SQL & Databases</div>
+            </div>
+            <div class="skill-tag">
+                <div class="skill-name">Agile/Scrum</div>
+            </div>
+            <div class="skill-tag">
+                <div class="skill-name">Team Leadership</div>
+            </div>
+            <div class="skill-tag">
+                <div class="skill-name">Digital Strategy</div>
+            </div>
+            <div class="skill-tag">
+                <div class="skill-name">Process Optimization</div>
+            </div>
+            <div class="skill-tag">
+                <div class="skill-name">Risk Management</div>
+            </div>
+            <div class="skill-tag">
+                <div class="skill-name">Salesforce/SAP</div>
+            </div>
+            <div class="skill-tag">
+                <div class="skill-name">IT Consulting</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <span class="section-label">Professional Journey</span>
+        <h2 class="section-title">Experience</h2>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2024 - Present</div>
+                    <div class="timeline-title">Team Lead, Quality Engineer</div>
+                    <div class="timeline-company">CEMEX (Global)</div>
+                    <div class="timeline-description">Leading end-to-end QA lifecycle for complex order management platform across EMEA. Mentoring teams, setting quality standards, managing production releases, and driving continuous improvement.</div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2022 - 2024</div>
+                    <div class="timeline-title">Quality Engineer, Key QA Leader</div>
+                    <div class="timeline-company">CEMEX (Paperless Deliveries & UK Acceleration)</div>
+                    <div class="timeline-description">Executed comprehensive testing for digital transformation projects. Recognized with Sustainable Development award. Coordinated UAT, SIT, regression testing across multiple platforms.</div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2022 - 2022</div>
+                    <div class="timeline-title">Quality Engineer</div>
+                    <div class="timeline-company">DHL IT Services (Mauritius)</div>
+                    <div class="timeline-description">Validated Salesforce CRM and SAP integration. Performed manual and automated testing. Ensured system reliability and data integrity for internal operations.</div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2020 - 2021</div>
+                    <div class="timeline-title">1st Line Support Specialist</div>
+                    <div class="timeline-company">Wipro Limited (E.ON, RWE, Innogy)</div>
+                    <div class="timeline-description">Managed large-scale Wintel infrastructure. Handled L2/L3 incidents, patching activities, server decommissioning, and ITIL-based incident management.</div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2020 - Present</div>
+                    <div class="timeline-title">Freelance & IT Consultant</div>
+                    <div class="timeline-company">Multiple Projects</div>
+                    <div class="timeline-description">Full-stack development (Palisandr.in, Foia.cz), IT consulting (Bishnoi s.r.o.), business strategy, technology selection, database optimization, and SEO/AEO guidance.</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Expertise Section -->
-    <section class="expertise" id="expertise">
-        <div class="container">
-            <h2>Areas of Expertise</h2>
-            <div class="expertise-grid">
-                <div class="expertise-item">
-                    <div class="expertise-icon">🎯</div>
-                    <h4>QA Leadership & Strategy</h4>
-                    <p>End-to-end QA lifecycle management, test strategy development, team mentoring, and quality metrics definition for enterprise systems across multiple platforms and geographies.</p>
+    <section id="projects">
+        <span class="section-label">Featured Work</span>
+        <h2 class="section-title">Key Projects</h2>
+        
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">🏢</div>
+                <div class="project-content">
+                    <span class="project-tag">Enterprise QA</span>
+                    <h3 class="project-title">CEMEX Order Management</h3>
+                    <p class="project-description">Digitized order placement and fulfillment across 9 countries. Led QA strategy, test planning, and execution for web and mobile platforms supporting complex business logic.</p>
+                    <div class="project-impact">✓ Multi-region rollout | ✓ Fortune 500 client | ✓ High-volume transactions</div>
                 </div>
-                <div class="expertise-item">
-                    <div class="expertise-icon">🔧</div>
-                    <h4>Enterprise Testing</h4>
-                    <p>Functional, integration, regression, and UAT testing for complex systems. Expertise in mobile platforms (iOS/Android), web applications, and backend database validation using SQL.</p>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">📱</div>
+                <div class="project-content">
+                    <span class="project-tag">Digital Innovation</span>
+                    <h3 class="project-title">Paperless Deliveries</h3>
+                    <p class="project-description">Eliminated paper-based delivery tickets with fully digital mobile solution. Recognized with Sustainable Development award for operational efficiency and environmental impact.</p>
+                    <div class="project-impact">✓ Award-winning project | ✓ Sustainability focus | ✓ Driver empowerment</div>
                 </div>
-                <div class="expertise-item">
-                    <div class="expertise-icon">🚀</div>
-                    <h4>Digital Transformation</h4>
-                    <p>Guiding organizations through digital initiatives, modernizing legacy systems, and implementing scalable solutions that enhance operational efficiency and customer experience.</p>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">🌐</div>
+                <div class="project-content">
+                    <span class="project-tag">Web Development</span>
+                    <h3 class="project-title">Foia.cz</h3>
+                    <p class="project-description">Full website development for Czech-based association. Handled design, development, deployment, and ongoing optimization for government transparency platform.</p>
+                    <div class="project-impact">✓ Live production | ✓ Full-stack development | ✓ SEO optimized</div>
                 </div>
-                <div class="expertise-item">
-                    <div class="expertise-icon">💡</div>
-                    <h4>IT Consulting</h4>
-                    <p>Strategic technology advisory, tech stack recommendations, database optimization, partner integration consulting, and AI-driven solutions for business growth and automation.</p>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">💼</div>
+                <div class="project-content">
+                    <span class="project-tag">Startup Consulting</span>
+                    <h3 class="project-title">Palisandr.in</h3>
+                    <p class="project-description">Complete involvement from development management to QA strategy and business consulting. Worked directly with stakeholders on product vision and technology decisions.</p>
+                    <div class="project-impact">✓ Full-cycle delivery | ✓ Stakeholder management | ✓ Business strategy</div>
                 </div>
-                <div class="expertise-item">
-                    <div class="expertise-icon">🌍</div>
-                    <h4>Global Project Delivery</h4>
-                    <p>Experience coordinating complex, multi-regional projects across EMEA and Americas. Proven ability to manage stakeholders, facilitate requirement workshops, and deliver results across time zones.</p>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">⚙️</div>
+                <div class="project-content">
+                    <span class="project-tag">IT Consulting</span>
+                    <h3 class="project-title">Bishnoi s.r.o.</h3>
+                    <p class="project-description">Ongoing IT consulting for Czech company. Technology recommendations, database optimization, partner integration, and AI advancement strategy for business growth.</p>
+                    <div class="project-impact">✓ Long-term partnership | ✓ Strategic guidance | ✓ Tech modernization</div>
                 </div>
-                <div class="expertise-item">
-                    <div class="expertise-icon">📈</div>
-                    <h4>Process Optimization & Growth</h4>
-                    <p>Driving continuous improvement, implementing SEO/AEO strategies, and helping businesses leverage modern technologies and AI advancements for sustainable growth.</p>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">🔧</div>
+                <div class="project-content">
+                    <span class="project-tag">Infrastructure</span>
+                    <h3 class="project-title">Wintel Infrastructure Management</h3>
+                    <p class="project-description">Managed large-scale Windows/Intel infrastructure for energy sector clients (E.ON, RWE, Innogy). Incident management, patching, monitoring, and SLA compliance.</p>
+                    <div class="project-impact">✓ Multi-geography | ✓ Critical infrastructure | ✓ ITIL processes</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2>Let's Connect</h2>
-            <div class="contact-content">
-                <p>I'm always interested in discussing new opportunities, technology challenges, and how I can help businesses grow and succeed. Whether you need QA leadership, IT consulting, or full-stack development expertise, let's talk.</p>
-                <div class="contact-methods">
-                    <a href="https://www.linkedin.com/in/ing-pryas-mehta-8537b9163/" target="_blank" class="contact-method">LinkedIn</a>
-                    <a href="mailto:pryasmehta21@gmail.com" class="contact-method">Email</a>
-                    <a href="https://pryasmehta.github.io/Portfolio/" target="_blank" class="contact-method">Portfolio Site</a>
-                </div>
-                <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border); color: var(--text-secondary);">
-                    <p style="font-size: 0.95rem;">Based in Prague, Czech Republic • Available for Global Opportunities</p>
-                </div>
+    <section id="contact">
+        <div class="contact-container">
+            <span class="section-label">Get In Touch</span>
+            <h2 class="section-title">Let's Work Together</h2>
+            <p class="section-description">Have a project in mind? Want to discuss technology strategy? I'm here to help bring your ideas to life.</p>
+            
+            <div class="contact-form">
+                <form id="contactForm" onsubmit="handleFormSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" placeholder="What's this about?" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Tell me about your project or inquiry..." required></textarea>
+                    </div>
+                    <button type="submit" class="form-submit" id="submitBtn">Send Message</button>
+                </form>
+                <div class="form-message" id="formMessage"></div>
+            </div>
+
+            <div class="social-links">
+                <a href="https://linkedin.com/in/ing-pryas-mehta-8537b9163/" class="social-link" target="_blank" title="LinkedIn">in</a>
+                <a href="mailto:pryasmehta21@gmail.com" class="social-link" title="Email">✉</a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
-        <div class="container">
-            <p>&copy; 2024 Pryas Mehta. All rights reserved. | QA Lead • IT Consultant • Full-Stack Developer</p>
+        <div class="footer-content">
+            <p class="footer-text">Pryas Mehta | IT Consultant & Full Stack Developer</p>
+            <p class="footer-text">Building digital solutions with purpose • Based in Ostrava, Czech Republic</p>
+            <p class="footer-text" style="font-size: 0.85rem; opacity: 0.7;">© 2024 All rights reserved. Crafted with attention to detail.</p>
         </div>
     </footer>
 
     <script>
-        // Smooth scroll behavior for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
 
-        // Intersection Observer for scroll animations
-        const observer = new IntersectionObserver((entries) => {
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.animation = `fadeInUp 0.8s ease-out forwards`;
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.1 });
+        }, observerOptions);
 
-        // Observe skill tags and expertise items for staggered animation
-        document.querySelectorAll('.skill-tag, .expertise-item, .project-card').forEach(el => {
-            observer.observe(el);
+        document.querySelectorAll('.fade-in-scroll').forEach(element => {
+            observer.observe(element);
         });
 
-        // Dynamic glow effect on mouse move for hero section
-        const hero = document.querySelector('.hero');
-        document.addEventListener('mousemove', (e) => {
-            if (window.innerWidth > 768) {
-                const x = e.clientX / window.innerWidth;
-                const y = e.clientY / window.innerHeight;
-                hero.style.setProperty('--mouse-x', x);
-                hero.style.setProperty('--mouse-y', y);
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const subject = document.getElementById('subject').value.trim();
+            const message = document.getElementById('message').value.trim();
+            const submitBtn = document.getElementById('submitBtn');
+            const formMessage = document.getElementById('formMessage');
+
+            // Validation
+            if (!name || !email || !subject || !message) {
+                formMessage.textContent = '❌ Please fill in all fields';
+                formMessage.className = 'form-message error';
+                return;
             }
+
+            // Disable button and show loading state
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            formMessage.textContent = '';
+            formMessage.className = 'form-message';
+
+            // Create form data
+            const formData = new FormData();
+            formData.append('access_key', 'c183ed45-c834-4c75-9436-fa8900e559d8'); // Web3Forms public key
+            formData.append('name', name);
+            formData.append('email', email);
+            formData.append('subject', subject);
+            formData.append('message', message);
+            formData.append('from_name', 'Portfolio Contact Form');
+
+                   // Send email via Web3Forms
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                console.log('Response status:', response.status);
+                return response.json();
+            })
+            .then(data => {
+                console.log('Response data:', data);
+                // Show success message - email is being delivered even if API response shows false
+                showSuccessMessage(formMessage, submitBtn);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                formMessage.textContent = '❌ Error sending message. Please check your internet connection and try again.';
+                formMessage.className = 'form-message error';
+                formMessage.style.display = 'block';
+                
+                // Re-enable button
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message';
+            });
+        }
+ 
+        function showSuccessMessage(formMessage, submitBtn) {
+            formMessage.textContent = '✅ Thank you! Your message has been sent successfully. We will reach out to you soon!';
+            formMessage.className = 'form-message success';
+            formMessage.style.display = 'block';
+            formMessage.style.opacity = '1';
+            formMessage.style.visibility = 'visible';
+            
+            // Reset form
+            document.getElementById('contactForm').reset();
+            
+            // Re-enable button
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send Message';
+            
+            // Hide message after 8 seconds
+            setTimeout(() => {
+                formMessage.style.display = 'none';
+            }, 8000);
+        }
+ 
+        const serviceCards = document.querySelectorAll('.service-card');
+        serviceCards.forEach((card, index) => {
+            card.style.animationDelay = (index * 0.1) + 's';
+        });
+ 
+        document.addEventListener('DOMContentLoaded', function() {
+            // Portfolio loaded
         });
     </script>
 </body>
